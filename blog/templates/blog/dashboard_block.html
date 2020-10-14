@@ -1,0 +1,13 @@
+{% extends 'blog/dashboard.html' %}
+{% block dashboard_content %}
+
+<div class="container">
+    <h4 class="center-align">Welcome, {{user.username}}</h4><br>
+    <div class="row center">
+        <a href="{% url 'create_blog' %}" class="btn waves-effect waves-light blue darken-3">Create Blog
+            <i class="material-icons right">send</i>
+        </a>
+    </div>
+</div>
+
+{% endblock %}

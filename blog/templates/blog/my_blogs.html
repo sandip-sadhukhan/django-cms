@@ -1,0 +1,23 @@
+{% extends 'blog/dashboard.html' %}
+{% block dashboard_content %}
+<table class="responsive-table stripted">
+    <thead>
+        <tr>
+            <th>Blog Title</th>
+            <th>Publication Date</th>
+            <th>View</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for blog in blogs %}
+        <tr>
+            <td>{{blog.blog_title}}</td>
+            <td>{{blog.pub_date}}</td>
+            <td><a href="{% url 'blog' blog.slug %}" class="blue-text">
+                <i class="fa fa-2x fa-eye"></i>
+            </a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

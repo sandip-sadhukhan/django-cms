@@ -1,0 +1,39 @@
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+    <li><a href="{% url 'profile' %}">Your Profile</a></li>
+    <li class="divider"></li>
+    <li><a href="{% url 'logout' %}">Logout</a></li>
+  </ul>
+
+<nav class="purple lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="{% url 'index' %}" class="brand-logo">Dj-CMS</a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'about_us' %}">About Us</a></li>
+            {% if user.is_authenticated %}
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Hello, {{user.username}}<i class="material-icons right">arrow_drop_down</i></a></li>
+            {% else %}
+            <a href="{% url 'login' %}" class="waves-effect waves-light btn purple">Login</a>
+            <a href="{% url 'register' %}" class="waves-effect waves-light btn blue darken-1">Register</a>
+            {% endif %}
+    </ul>
+        </ul>
+
+        <ul id="nav-mobile" class="sidenav">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'about_us' %}">About Us</a></li>
+            <li class="divider"></li>
+            {% if user.is_authenticated %}
+            <li><a href="#">Hello, {{user.username}}</a></li>
+            <li><a href="{% url 'profile' %}">Your Profile</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+            <a href="{% url 'login' %}" class="waves-effect waves-light btn purple">Login</a><br>
+            <a href="{% url 'register' %}" class="waves-effect waves-light btn blue darken-1">Register</a>
+            {% endif %}
+            <!-- <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li> -->
+    </ul>
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+</nav>

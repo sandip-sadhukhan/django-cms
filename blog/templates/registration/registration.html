@@ -1,0 +1,63 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<style>
+    body{
+        background-color: #eeeeee;
+    }
+</style>
+{% if from.errors %}
+<p>There's something wrong with what you entered!</p>
+{% endif %}
+{% if next %}
+<p>Hey, you can't access that page</p>
+{% endif %}
+<div class="container" style="margin:30px auto;">
+    <div class="row">
+        <form action="{% url 'register' %}" method="POST" class="col s12 m12">
+            {% csrf_token %}
+            <div class="row card-panel #4a148c purple darken-4">
+                <h4 style="text-align: center;" class="white-text light">Registration Form</h4>
+                <div class="input-field col s12 m6 offset-m3">
+                    {{form.username}}
+                    <label for="id_username">Username</label>
+                </div>
+                <div class="input-field col s12 m3 offset-m3">
+                    {{form.first_name}}
+                    <label for="id_first_name">First Name</label>
+                </div>                
+                <div class="input-field col s12 m3">
+                    {{form.last_name}}
+                    <label for="id_last_name">Last Name</label>
+                </div>
+                <div class="input-field col s12 m6 offset-m3">
+                    {{form.email}}
+                    <label for="id_email">Email</label>
+                </div>
+                <div class="input-field col s12 m3 offset-m3">
+                    {{form.password1}}
+                    <label for="id_password1">Password</label>
+                </div>
+                <div class="input-field col s12 m3">
+                    {{form.password2}}
+                    <label for="id_password2">Confirm Password</label>
+                </div>
+                <div class="col s12 m6 offset-m3">
+                    <input class="waves-effect waves-light btn blue darken-1 white-text" type="submit" value="Register"><br>
+                </div>
+                <div class="col s12 m6 offset-m3 white-text">
+                    <p class="message">Already Have a Account? <a style="text-decoration: underline;" href="{% url 'login' %}">Login Here</a></p>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    inputForms = document.querySelectorAll('input')
+    inputForms[1].classList += 'white-text';
+    inputForms[2].classList += 'white-text';
+    inputForms[3].classList += 'white-text';
+    inputForms[4].classList += 'white-text';
+    inputForms[5].classList += 'white-text';
+    inputForms[6].classList += 'white-text';
+</script>
+{% endblock %}

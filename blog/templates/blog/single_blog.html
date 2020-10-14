@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<style>
+    body {
+        background: #12c2e9;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+</style>
+<div class="row" style="margin:30px auto;">
+    <div class="col s12 m8 offset-m2">
+        <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+                <span class="card-title center-align">
+                    {{blogpost.blog_title}}</span>
+                <p class="#eeeeee grey-text lighten-3" style="font-size: 13px; margin-bottom: 10px; margin-top: 30px;">Published on {{blogpost.pub_date}} and written by {{pub_user}}</p>
+                <div class="divider"></div>
+                <br>
+                <p>{{blogpost.blog_content}}</p>
+                <p> </p>
+            </div>
+        </div>
+    </div>
+</div>
+    {% endblock %}

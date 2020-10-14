@@ -1,0 +1,41 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<div class="row" style="margin-top:20px;">
+    <div class="col s12 m6 offset-m3">
+      <div class="card #8e24aa purple darken-1">
+        <div class="card-content white-text">
+          <span class="card-title center-align">Your Profile</span>
+          <div class="row">
+              <div class="col s12 m8 offset-m2">
+                  <table class="centered">
+                      <tr>
+                          <th>Username</th>
+                          <td>{{user.username}}</td>
+                      </tr>
+                      
+                      <tr>
+                        <th>First name</th>
+                        <td>{{user.first_name}}</td>
+                    </tr>
+                    
+                    <tr>
+                        <th>Last name</th>
+                        <td>{{user.last_name}}</td>
+                    </tr>
+                    
+                    <tr>
+                        <th>Email</th>
+                        <td>{{user.email}}</td>
+                    </tr>
+                  </table>
+              </div>
+          </div>
+        </div>
+        <div class="card-action white-text center-align">
+          <a href="{% url 'dashboard' %}" class="white-text">Dashboard</a>
+          <a href="{% url 'logout' %}" class="white-text">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

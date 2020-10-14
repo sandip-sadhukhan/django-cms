@@ -1,0 +1,24 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<div class="row" style="margin:0px;margin-top: 5px;">
+    <div class="col s12 m3" style="margin:0 !important;">
+        <ul class="collection white-text">
+            <a href="{% url 'dashboard' %}" class="white-text">
+                <li class="collection-item #37474f blue-grey darken-3 ">Dashboard</li>
+            </a>
+            <a href="{% url 'my_blogs' %}" class="white-text">
+                <li class="collection-item #37474f blue-grey darken-3 " >My Blogs</li>
+            </a>
+            <!-- <a href="{% url 'dashboard' %}" class="white-text">
+                <li class="collection-item #37474f blue-grey darken-3 ">Settings</li>
+            </a> -->
+            <a href="{% url 'profile' %}" class="white-text">
+                <li class="collection-item #37474f blue-grey darken-3 ">Your Profile</li>
+            </a>
+          </ul>
+    </div>
+    <div class="col s12 m9">
+        {% block dashboard_content %}{% endblock %}
+    </div>
+</div>
+{% endblock %}

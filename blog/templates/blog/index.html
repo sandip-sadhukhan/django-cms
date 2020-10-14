@@ -1,0 +1,67 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<!-- Welcome Section -->
+<div class="section no-pad-bot #eeeeee grey lighten-3" id="index-banner">
+  <div class="container">
+    <br><br>
+    <h1 class="header center purple-text">Django-CMS</h1>
+    <div class="row center">
+      <h5 class="header col s12 light">A modern responsive content management system developed in <a
+          href="https://www.djangoproject.com/" target="_blank">
+          <span style="font-weight: 500;" class="#00c853 green-text accent-4">Django Framework</span>
+        </a></h5>
+    </div>
+
+    <div class="row center">
+      {% if user.is_authenticated %}
+      <a href="{% url 'dashboard' %}" id="download-button" class="btn-large waves-effect waves-light green">Go To Dashboard</a>
+      {% else %}
+      <a href="{% url 'register' %}" id="download-button" class="btn-large waves-effect waves-light purple">Get started</a>
+      {% endif %}
+    </div>
+    <br><br>
+
+  </div>
+</div>
+
+<!-- 3 column section -->
+<div class="container">
+  <div class="section">
+
+    <!--   Icon Section   -->
+    <div class="row">
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center #ba68c8 purple-text lighten-2"><i class="large material-icons">flash_on</i></h2>
+          <h5 class="center">Deployment smoothly</h5>
+
+          <p class="light">This platform provides you to create blogs/ articles and deploy in this site. Share your
+            article/post/blogs with anyone you want.</p>
+        </div>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center #ba68c8 purple-text lighten-2"><i class="large material-icons">group</i></h2>
+          <h5 class="center">SEO Focused</h5>
+
+          <p class="light">The articles you write, you can add seo meta tags, keywords to this website so that your
+            articles should shown into google.</p>
+        </div>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center #ba68c8 purple-text lighten-2"><i class="large material-icons">settings</i></h2>
+          <h5 class="center">Easy to work with</h5>
+
+          <p class="light">In this platform you can write some useful blogs as your choice in very simple and easy
+            steps. First you need to register yourself and write blogs and publish them when you want.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <br><br>
+</div>
+{% endblock %}

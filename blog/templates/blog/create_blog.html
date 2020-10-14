@@ -1,0 +1,53 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<style>
+    body{
+        background-color: #c4c4c4;
+    }
+</style>
+<h3 class="center-align">Create Blog</h3>
+<div class="row center-align">
+    <div class="col s12 m8 offset-m2">
+        <div class="card-panel #fafafa grey lighten-5">
+            <h5 id="title-result">Blog Title</h5>
+            <br>
+            <hr>
+            <form action="{% url 'create_blog' %}" method="post" style="margin-top:50px;">
+                {% csrf_token %}
+                <div class="input-field">
+                    <input type="text" name="blog_title" value="Blog Title" style="font-size: 30px;" id="title">
+                    <label for="title">Blog Title</label>
+                </div>
+                <div class="input-field" style="margin-top: 30px;">
+                    <textarea id="blog-content" name="blog_content" id="" cols="30" rows="10" style="margin:20px auto;height:400px;" class="materialize-textarea " placeholder="Enter Blog Content..."></textarea>
+                    <label for="blog-content">Blog Content</label>
+                </div>
+                <button id="submitbtn" class="btn waves-effect waves-light" type="submit" name="action">Publish Blog
+                    <i class="material-icons right">send</i>
+                  </button>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    // UI Components
+    const title = document.getElementById('title');
+    const titleResult = document.getElementById('title-result');
+    const blogContent = document.getElementById('blog-content');
+
+    // For title interactivity
+    title.addEventListener('input', ()=>{
+        titleResult.textContent = title.value;
+    });
+
+    // For Validation
+    document.getElementById('submitbtn').addEventListener('click', (e)=>{
+        console.log('Hello')
+        if (title.value.trim() === '' || blogContent.value.trim() === ''){
+            e.preventDefault()
+            alert('Please Enter some title and Content in your blog', blogContent.value)
+        }
+    })
+
+</script>
+{% endblock %}
